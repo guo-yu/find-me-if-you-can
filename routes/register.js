@@ -21,18 +21,25 @@ module.exports = function(app, express, debug, ctrlers) {
           next(err);
         }
         
-        var imageFile = req.files.image;
+        var avatarFile = req.files.avatar;
         
         var data = {
           img : {
-            value:fs.readFileSync(imageFile.path), 
-            meta:{filename:imageFile.originalname}
+            value:fs.readFileSync(avatarFile.path), 
+            meta:{filename:avatarFile.originalname}
           }
         };
         client.postMulti('detection/detect', data, function(err, response, body){
           
           user.face_id = body.face[0].face_id;
           user.save();
+          
+          client.postMulti('person/add_face', { person_id : user._id, face_id : body.face[0].face_id}, function(err, response, body){
+            // ignore err
+            if (err) return;
+            
+          });
+          
         });
         
         res.send('ok');
