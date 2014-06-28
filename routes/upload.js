@@ -4,9 +4,9 @@ module.exports = function(app, express, debug) {
   var route = express.Router();
 
   // upload my avatar or pictures
-  route.get('/', function(req, res, next) {
-    log(req.file)
-    log(req.files)
+  route.post('/', function(req, res, next) {
+    log(req.file);
+    log(req.files);
     res.send('ok');
   });
 
