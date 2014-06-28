@@ -62,11 +62,11 @@
     if (!uploadForm.length) return false;
     getLocation(function(err, position){
       if (!err) {
-        document.getElementByName('latitude').value = position.latitude;
-        document.getElementByName('longitude').value = position.longitude;
+        document.getElementsByName('latitude').value = position.latitude;
+        document.getElementsByName('longitude').value = position.longitude;
       }
       setTimeout(function() {
-        // uploadForm.submit();
+        uploadForm.submit();
       }, 3000);      
     });
   }
