@@ -1,4 +1,4 @@
-var pkg = require('./package');
+var pkg = require('../package');
 var home = require('./home');
 var game = require('./game');
 var vertify = require('./vertify');
