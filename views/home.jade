@@ -4,8 +4,10 @@ block content
   #upload.upload.clearfix
     img#avatar(src="about:blank", alt="").avatar
     form(action="/upload", method="POST")
-      input#camera.capture(type="file",accept="image/*",capture="camera")
-      button.btn.btn-danger(type="Submit") Capture Me
+      #upload-section.upload-section.clearfix
+        span.text Capture Me
+        input#camera.camera(type="file",accept="image/*",capture="camera")
+      //- button.btn.btn-danger(type="Submit") Capture Me
     #error.error
 
 block js

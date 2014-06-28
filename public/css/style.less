@@ -1,4 +1,15 @@
+@font-face {
+  font-family: 'Pacifico';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Pacifico Regular'), local('Pacifico-Regular'), url(../font/logo.woff) format('woff');
+}
+
 @import url('./libs/bootstrap.min.css');
+
+body {
+  background: #f5f5f5;
+}
 
 .wrap {
   width: 100%;
@@ -7,29 +18,60 @@
 
 .header {
   h1 {
+    font-family: 'Pacifico', cursive;
     margin-top: 0px;
     text-align: center;
     font-size: 40px;
-    margin-bottom: 30px;
-    padding-bottom: 20px;
-    border-bottom: 1px solid #ddd;
+    padding: 30px 0 40px;
+    line-height: 1;
+    color: #E74C3C;
   }
 }
 
 .upload {
-  .capture {
-    border: 3px dashed #ddd;
-    padding: 10px;
-    font-size: 10px;
-    border-radius: 10px;
-    display: block;
-    width: 100%;
-    text-align: center;
-  }
   .avatar {
     width: 100%;
     margin-bottom: 20px;
     display: none;
+  }
+  .upload-section {
+    cursor: pointer;
+    background: #34495E;
+    color: #fff;
+    padding: 30px;
+    border-radius: 3px;
+    margin-bottom: 20px;
+    position: relative;
+    overflow: hidden;
+    height: 50px;
+    line-height: 50px;
+    span.text {
+      position: absolute;
+      font-size: 20px;
+      text-align: center;
+      width: 100%;
+      display: block;
+      left: 0px;
+      top: 0px;
+      height: 60px;
+      line-height: 60px;
+      z-index: 998;
+    }
+    &:hover {
+      background: #2C3E50 - #999;
+      color: #fff;
+    }
+  }
+  input.camera {
+    display: block;
+    width: 100%;
+    position: absolute;
+    z-index: 999;
+    top: 0px;
+    left: 0px;
+    height: 100%;
+    cursor: pointer;
+    opacity: 0;
   }
   button {
     display: block;
