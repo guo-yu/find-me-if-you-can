@@ -1,14 +1,22 @@
-## find-me-if-you-can ![npm](https://badge.fury.io/js/find-me-if-you-can.png)
+## find-me-if-you-can
 
-a game to find the real people like a people puzzle
+a game to find the real people like a people puzzle.
 
 ### Installation
-````
-$ npm install find-me-if-you-can
-````
+```
+$ git clone https://github.com/turingou/find-me-if-you-can.git
+$ cd find-me-if-you-can
+$ npm test // for debug
+```
+for production:
 
-### API
-check this file: `index.js`
+```
+$ npm start
+```
+or 
+```
+$ PORT=8080 NODE_ENV=production node app.js
+```
 
 ### Contributing
 - Fork this repo
