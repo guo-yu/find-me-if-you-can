@@ -7,8 +7,8 @@ module.exports = function(deps) {
   var route = deps.express.Router();
   var groupCtrler = deps.ctrlers.group;
   
-  route.get('/', function(req, res, next) {
-    fppClient.get('group/create', {group_name : 'SegmentFault黑客马拉松'}, function(err, response, body){
+  route.post('/create', function(req, res, next) {
+    fppClient.get('group/create', {group_name : req.body.name}, function(err, response, body){
       
     });
   });

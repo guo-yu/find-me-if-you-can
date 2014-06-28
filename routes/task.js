@@ -21,7 +21,7 @@ module.exports = function(deps) {
       ctrlers.user.model.find({_id : {$nin : alreadyTokenPersons}}, callback2);
     }
     
-    var response = {};
+    var response = { status : 'ok'};
     function callback2(err, users){
       response.user = users[Math.floor(Math.random() * users.length)];
       

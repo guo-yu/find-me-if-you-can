@@ -6,6 +6,7 @@ var upload = require('./upload');
 var register = require('./register');
 var task = require('./task');
 var group = require('./group');
+var login = require('./login');
 
 module.exports = routes;
 
@@ -24,6 +25,7 @@ function routes(app, express, debug, models, ctrlers) {
   app.get('/', home);
   // API: register newbie, uploading avatars
   app.use('/register', register(deps));
+  app.use('/login', login(deps));
   // API: upload pictures
   app.use('/upload', upload(deps));
   // API: fetch task
