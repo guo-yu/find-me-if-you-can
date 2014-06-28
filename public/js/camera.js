@@ -3,6 +3,7 @@
 (function() {
   var camera = document.querySelector("#camera");
   var screenshot = document.querySelector("#avatar");
+  var uploadForm = document.getElementById('uploadForm');
 
   camera.onchange = function(event) {
     var files = event.target.files;
@@ -20,6 +21,7 @@
       // Revoke ObjectURL
       URL.revokeObjectURL(imgURL);
       screenshot.style.display = 'block';
+      return instantUpload();
     } catch (err) {
       try {
         // Fallback if createObjectURL is not supported
@@ -27,6 +29,7 @@
         fileReader.onload = function(event) {
           screenshot.src = event.target.result;
           screenshot.style.display = 'block';
+          return instantUpload();
         };
         fileReader.readAsDataURL(file);
       } catch (e) {
@@ -37,7 +40,8 @@
   };
 
   function instantUpload() {
-    
+    if (!uploadForm.length) return false;
+    return uploadForm.submit();
   };
 
 })();

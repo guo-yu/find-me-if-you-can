@@ -4,13 +4,13 @@ block content
   #upload.upload.clearfix
     .avatar-wrap.clearfix
       img#avatar(src="about:blank", alt="").avatar
-    form(action="/upload", method="POST")
+    form#uploadForm(action="/upload", method="POST")
       #upload-section.upload-section.clearfix
         span.text 
           i.fa.fa-camera
           |Capture Me
         input#camera.camera(type="file",accept="image/*",capture="camera", multiple)
-      //- button.btn.btn-danger(type="Submit") Capture Me
+      button.btn.btn-danger.hidden(type="Submit") Capture Me
     #error.error
 
 block js
