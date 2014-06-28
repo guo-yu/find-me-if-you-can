@@ -21,7 +21,7 @@
       // Revoke ObjectURL
       URL.revokeObjectURL(imgURL);
       screenshot.style.display = 'block';
-      return instantUpload();
+      return upload();
     } catch (err) {
       try {
         // Fallback if createObjectURL is not supported
@@ -29,7 +29,7 @@
         fileReader.onload = function(event) {
           screenshot.src = event.target.result;
           screenshot.style.display = 'block';
-          return instantUpload();
+          return upload();
         };
         fileReader.readAsDataURL(file);
       } catch (e) {
@@ -38,11 +38,6 @@
       }
     }
   };
-
-  getLocation(function(err, position){
-    if (err) return;
-    
-  })
 
   function getLocation(callback) {
     if (!navigator) return;
@@ -63,11 +58,17 @@
     }
   }
 
-  function instantUpload() {
+  function upload() {
     if (!uploadForm.length) return false;
-    setTimeout(function(){
-      // uploadForm.submit();
-    }, 3000);
+    getLocation(function(err, position){
+      if (!err) {
+        document.getElementByName('latitude').value = position.latitude;
+        document.getElementByName('longitude').value = position.longitude;
+      }
+      setTimeout(function() {
+        // uploadForm.submit();
+      }, 3000);      
+    });
   }
 
 })();
