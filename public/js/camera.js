@@ -3,7 +3,7 @@
 (function() {
   var camera = document.querySelector("#camera");
   var screenshot = document.querySelector("#avatar");
-  var uploadForm = document.getElementById('uploadForm');
+  var uploadForm = document.forms.namedItem('uploadForm');
 
   camera.onchange = function(event) {
     var files = event.target.files;
@@ -21,7 +21,7 @@
       // Revoke ObjectURL
       URL.revokeObjectURL(imgURL);
       screenshot.style.display = 'block';
-      return upload();
+      return uploadForm.submit();
     } catch (err) {
       try {
         // Fallback if createObjectURL is not supported
@@ -29,7 +29,7 @@
         fileReader.onload = function(event) {
           screenshot.src = event.target.result;
           screenshot.style.display = 'block';
-          return upload();
+          return uploadForm.submit();
         };
         fileReader.readAsDataURL(file);
       } catch (e) {
@@ -38,6 +38,30 @@
       }
     }
   };
+
+  uploadForm.addEventListener('submit', function(ev){
+    var data = new FormData(uploadForm);
+    var req = new XMLHttpRequest();
+    req.open('POST', 'register', true);
+    req.onLoad = function(event) {
+      console.log(req.status);
+      if (req.status === 200) {
+        alert('上传成功!');
+      } else {
+        alert('上传失败');
+      }
+    }
+
+    req.send(data);
+    ev.preventDefault();
+  }, false);
+
+  getLocation(function(err, position) {
+    if (!err && position) {
+      document.getElementsByName('latitude').value = position.latitude;
+      document.getElementsByName('longitude').value = position.longitude;
+    }
+  });
 
   function getLocation(callback) {
     if (!navigator) return;
@@ -56,19 +80,6 @@
       console.error(err);
       return callback(err);
     }
-  }
-
-  function upload() {
-    if (!uploadForm.length) return false;
-    getLocation(function(err, position){
-      if (!err) {
-        document.getElementsByName('latitude').value = position.latitude;
-        document.getElementsByName('longitude').value = position.longitude;
-      }
-      setTimeout(function() {
-        uploadForm.submit();
-      }, 3000);      
-    });
   }
 
 })();

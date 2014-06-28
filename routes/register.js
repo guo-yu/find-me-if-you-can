@@ -1,19 +1,21 @@
 var FacePlusPlus = require('faceplusplus');
 var fppClient = new FacePlusPlus(require('../config/faceplusplus.json'));
 
-module.exports = function(app, express, debug, ctrlers) {
+module.exports = function(deps) {
   
-  var log = debug('register');
-  var route = express.Router();
+  var log = deps.debug('register');
+  var route = deps.express.Router();
+  var userCtrler = deps.ctrlers.user;
   
   // upload my avatar or pictures
   route.post('/', function(req, res, next) {
+    log('swsw');
     fppClient.post('person/create', {person_name : '用户名'}, function(err, response, body){
       if (err){
         next(err);
       }
       
-      ctrlers.user.create({
+      userCtrler.create({
           _id: body.person_id,
           name : '随机用户名'
         }, function(err, user){

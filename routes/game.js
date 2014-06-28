@@ -1,7 +1,7 @@
-module.exports = function(app, express, debug) {
+module.exports = function(deps) {
   
-  var log = debug('game');
-  var route = express.Router();
+  var log = deps.debug('game');
+  var route = deps.express.Router();
   
   route.get('/', function(req, res, next) {
     log(req.session.user);

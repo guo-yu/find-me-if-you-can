@@ -7,18 +7,25 @@ var register = require('./register');
 
 module.exports = routes;
 
-function routes(app, express, debug) {
+function routes(app, express, debug, models, ctrlers) {
 
   app.locals.sys = pkg;
+
+  var deps = {};
+  deps.app = app;
+  deps.debug = debug;
+  deps.express = express;
+  deps.ctrlers = ctrlers;
+  deps.models = models;
 
   // home route
   app.get('/', home);
   // sign up
-  app.use('/register', register);
+  app.use('/register', register(deps));
   // upload
-  app.use('/upload', upload(app, express, debug, ctrlers));
+  app.use('/upload', upload(deps));
   // the game
-  app.use('/game', game(app, express, debug, ctrlers));
+  app.use('/game', game(deps));
   // vertify yourself, todo
   // app.post('/vertify', vertify);
 

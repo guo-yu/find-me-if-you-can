@@ -1,7 +1,7 @@
-module.exports = function(app, express, debug, ctrlers) {
+module.exports = function(deps) {
   
-  var log = debug('upload');
-  var route = express.Router();
+  var log = deps.debug('upload');
+  var route = deps.express.Router();
 
   // upload my avatar or pictures
   route.post('/', function(req, res, next) {
