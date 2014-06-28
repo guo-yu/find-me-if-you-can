@@ -10,7 +10,7 @@ var login = require('./login');
 
 module.exports = routes;
 
-function routes(app, express, debug, models, ctrlers) {
+function routes(app, express, middlewares, models, ctrlers, debug) {
 
   app.locals.sys = pkg;
 
@@ -20,6 +20,8 @@ function routes(app, express, debug, models, ctrlers) {
   deps.express = express;
   deps.ctrlers = ctrlers;
   deps.models = models;
+
+  app.use('*', middlewares.passport.sign());
 
   // home route
   app.get('/', home);
