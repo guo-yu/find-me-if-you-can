@@ -1,5 +1,6 @@
 module.exports = function(deps) {
   var log = deps.debug('register');
+  var ctrlers = deps.ctrlers;
   var route = deps.express.Router();
 
   // upload my avatar or pictures

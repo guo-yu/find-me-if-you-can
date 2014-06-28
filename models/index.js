@@ -1,5 +1,7 @@
 var models = {};
 models.user = require('./user');
+models.photo = require('./photo');
+models.group = require('./group');
 
 // define modles
 module.exports = function(db, Schema) {

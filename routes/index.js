@@ -5,6 +5,8 @@ var game = require('./game');
 var upload = require('./upload');
 var register = require('./register');
 var task = require('./task');
+var group = require('./group');
+
 
 module.exports = routes;
 
@@ -30,5 +32,6 @@ function routes(app, express, debug, models, ctrlers) {
   // vertify yourself, todo
   // app.post('/vertify', vertify);
   app.use('/task', task(deps));
+  app.use('/group', group(deps));
   
 }
