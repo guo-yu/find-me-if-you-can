@@ -2,7 +2,7 @@ var pkg = require('./package');
 
 module.exports = routes;
 
-function routes(app, express) {
+function routes(app, express, debug) {
 
   app.locals.sys = pkg;
 
@@ -13,7 +13,7 @@ function routes(app, express) {
   });
 
   // the game
-  app.get('/game', function(req, res, next){
+  app.get('/game', function(req, res, next) {
     if (!req.session.user) return res.redirect('/');
     // fetch a ramdom avatar and return 
     res.render('game', {
@@ -22,13 +22,16 @@ function routes(app, express) {
   });
 
   // media upload
-  app.post('/image', function(req, res, next){
-    if (!req.files.media) return next(new Error('404'));
-    var file = req.files.media;
-    console.log(file);
-    res.render('captured', {
-      avatar: file.path
-    });
+  app.post('/upload', function(req, res, next) {
+
+    debug('upload')('uploading images');
+    debug('upload')(req.body);
+
+    res.send('ok');
+    // res.render('captured', {
+    //   avatar: file.path
+    // });
+
     // media.create({
     //   name: file.name,
     //   type: file.mimetype,
@@ -46,7 +49,7 @@ function routes(app, express) {
   });
 
   // vertify yourself
-  app.post('/vertify', function(req, res, next){
+  app.post('/vertify', function(req, res, next) {
     var nickname = req.body.nickname;
     if (!nickname) nickname = 'someguy';
     var avatar = req.body.avatar;

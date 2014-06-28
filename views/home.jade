@@ -2,6 +2,11 @@ extends layout
 
 block content
   #upload.upload.clearfix
-    form(action="/image", method="POST")
-      input#capture.capture(type="file",accept="image/*",capture="camera")
+    img#avatar(src="about:blank", alt="").avatar
+    form(action="/upload", method="POST")
+      input#camera.capture(type="file",accept="image/*",capture="camera")
       button.btn.btn-danger(type="Submit") Capture Me
+    #error.error
+
+block js
+  script(src="/js/camera.js")

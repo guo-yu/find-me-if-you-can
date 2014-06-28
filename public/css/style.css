@@ -20,6 +20,9 @@
   width: 100%;
   text-align: center;
 }
+.upload .avatar {
+  display: none;
+}
 .upload button {
   display: block;
   width: 100%;

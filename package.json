@@ -8,7 +8,7 @@
   "public": "./public",
   "uploads": "./public/uploads",
   "scripts": {
-    "test": "DEBUG=fmiyc node app.js",
+    "test": "DEBUG=find-me-if-you-can,find-me-if-you-can:* node app.js",
     "start": "PORT=8080 NODE_ENV=production node app.js"
   },
   "repository": {
