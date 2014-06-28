@@ -14,6 +14,8 @@ $(document).ready(function(){
       .addClass('fa fa-check');
     statusIcon.addClass('bounce animated');
     // fetch tasks
-    fetchTask();
+    setTimeout(function(){
+      window.location.href = '/';
+    }, 1000);
   });
 });
