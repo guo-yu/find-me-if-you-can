@@ -31,6 +31,6 @@
   "homepage": "https://github.com/turingou/find-me-if-you-can",
   "dependencies": {
     "express-scaffold": "0.4.1",
-    "faceplusplus" : "*"
+    "faceplusplus" : "~0.0.2"
   }
 }
