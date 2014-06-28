@@ -4,6 +4,9 @@
   var camera = document.querySelector("#camera");
   var screenshot = document.querySelector("#avatar");
   var uploadForm = document.forms.namedItem('uploadForm');
+  var nanobar = new Nanobar({
+    bg: '#444'
+  });
 
   camera.onchange = function(event) {
     var files = event.target.files;
@@ -49,16 +52,34 @@
   function submitForm() {
     var data = new FormData(uploadForm);
     var req = new XMLHttpRequest();
+    
     req.open('POST', '/register', true);
-    req.onload = function(event) {
-      console.log(req.status);
-      if (req.status === 200) {
-        alert('上传成功!');
-      } else {
-        alert('上传失败');
+    req.addEventListener('error', function() {
+      alert('上传失败了...稍后再试试吧');
+    }, false);
+    
+    req.addEventListener('load', function(result) {
+      var statusCode = result.target.status;
+      if (statusCode !== 200) return alert('上传失败了...稍后再试试吧');
+      try {
+        var data = JSON.parse(this.responseText);
+        if (data.status !== 'ok') return alert(data.message);
+        // final success !
+        
+      } catch (err) {
+        console.error(err);
+        alert('JSON parse error');
       }
-    }
+    }, false);
+
     req.send(data);
+    // the process monitor
+    req.upload.addEventListener('progress', function(pe){
+      if(pe.lengthComputable){
+        var percentage = Math.round(pe.loaded / pe.total * 100);
+        nanobar.go(percentage);
+      }
+    });
   }
 
   function getLocation(callback) {

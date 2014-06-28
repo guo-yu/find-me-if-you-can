@@ -53,7 +53,7 @@ module.exports = function(deps) {
           }, function(err, response, body) {
             // ignore err
             if (err) return;
-          );
+          });
           
           fppClient.post('person/add_face', {
             person_id: user._id,
