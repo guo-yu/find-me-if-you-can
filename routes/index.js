@@ -13,10 +13,10 @@ function routes(app, express, debug) {
   // home route
   app.get('/', home);
   // upload
-  app.post('/upload', upload);
+  app.use('/upload', upload(app, express, debug));
   // the game
-  app.get('/game', game);
-  // vertify yourself
-  app.post('/vertify', vertify);
+  app.use('/game', game(app, express, debug));
+  // vertify yourself, todo
+  // app.post('/vertify', vertify);
 
 }
