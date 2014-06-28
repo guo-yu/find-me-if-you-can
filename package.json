@@ -1,0 +1,28 @@
+{
+  "name": "find-me-if-you-can",
+  "version": "0.1.0",
+  "description": "a game to find the real people like a people puzzle",
+  "main": "app.js",
+  "scripts": {
+    "test": "DEBUG=fmiyc node app.js",
+    "start": "PORT=8080 NODE_ENV=production node app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:turingou/find-me-if-you-can.git"
+  },
+  "keywords": [
+    "game",
+    "people",
+    "puzzle"
+  ],
+  "author": "turing <o.u.turing@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/turingou/find-me-if-you-can/issues"
+  },
+  "homepage": "https://github.com/turingou/find-me-if-you-can",
+  "dependencies": {
+    "express-scaffold": "0.4.1"
+  }
+}
