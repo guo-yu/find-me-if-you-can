@@ -20,6 +20,8 @@ module.exports = function(deps) {
         nickname : '随机用户名' 
       }, function(err, user) {
         if (err) return next(err);
+        
+        req.session.user = user;
 
         var avatarFile = req.files.avatar;
 
