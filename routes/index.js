@@ -29,8 +29,7 @@ function routes(app, express, debug, models, ctrlers) {
   app.use('/upload', upload(deps));
   // the game
   app.use('/game', game(deps));
-  // vertify yourself, todo
-  // app.post('/vertify', vertify);
+  
   app.use('/task', task(deps));
   app.use('/group', group(deps));
   

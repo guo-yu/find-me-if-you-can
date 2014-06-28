@@ -1,19 +1,18 @@
 extends layout
 
 block content
+  #avatar-wrap.avatar-wrap.clearfix
+    img#avatar(src="/images/bg.png", alt="").avatar
   #upload.upload.clearfix
-    .avatar-wrap.clearfix
-      img#avatar(src="about:blank", alt="").avatar
     form#uploadForm(action="/register", method="POST", enctype="multipart/form-data", name="uploadForm")
       #upload-section.upload-section.clearfix
-        span.text 
+        #status-botton.text 
           i.fa.fa-camera
-          | 自拍一张
+          span.desc 自拍一张
         input#camera.camera(type="file",accept="image/*",capture="camera",name="avatar")
-      input(type="hidden", name="latitude")
-      input(type="hidden", name="longitude")
+      //- input(type="hidden", name="latitude")
+      //- input(type="hidden", name="longitude")
       button.btn.btn-danger.hidden(type="Submit") Submit
-    #error.error
 
 block js
   script(src="/js/camera.js")

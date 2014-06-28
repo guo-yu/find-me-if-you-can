@@ -11,38 +11,46 @@
 
 body {
   background: #f5f5f5;
+  padding-bottom: 60px;
 }
 
 .header {
+  background-color: #E74C3C;
+  border-radius: 0px;
   h1 {
     font-family: 'Pacifico', cursive;
     margin-top: 0px;
     text-align: center;
     font-size: 36px;
     padding: 30px 0 30px;
+    margin-bottom: 0px;
     line-height: 1;
-    color: #E74C3C;
+    color: #fff;
   }
 }
 
+.avatar-wrap {
+  margin: 0px 20px;
+}
+.avatar {
+  opacity: 0.5;
+  max-width: 100%;
+  display: block;
+  margin: 0px auto 20px;
+  border-radius: 5px;
+} 
 .upload {
-  .avatar-wrap {
-    margin: 0px 20px;
-  }
-  .avatar {
-    max-width: 100%;
-    margin: 0px auto 20px;
-    display: none;
-    border-radius: 5px;
-    box-shadow: 0px 0px 15px #ddd;
-  }
+  position: fixed; 
+  width: 100%;
+  overflow: hidden;
+  bottom: 0px;
+  left: 0px;
+  height: 50px;
   .upload-section {
-    width: 260px;
     cursor: pointer;
-    background: #34495E;
     color: #fff;
+    background-color: #3498DB;
     padding: 0px;
-    border-radius: 40px;
     margin-bottom: 20px;
     position: relative;
     overflow: hidden;
@@ -50,7 +58,7 @@ body {
     line-height: 50px;
     margin-left: auto;
     margin-right: auto;
-    span.text {
+    .text {
       position: absolute;
       font-size: 18px;
       text-align: center;
@@ -61,14 +69,17 @@ body {
       height: 50px;
       line-height: 50px;
       z-index: 998;
-      i {
-        padding-right: 15px;
+      span.desc {
+        padding-left: 15px;
       }
     }
     &:hover {
-      background: #2C3E50 - #999;
+      background: #2980B9;
       color: #fff;
     }
+  }
+  .task-section {
+    background-color: #2ECC71;
   }
   input.camera {
     display: block;
@@ -87,4 +98,12 @@ body {
     margin-top: 30px;
     font-size: 40px;
   }
+}
+
+.upload-fail { 
+  background-color: #F1C40F;
+}
+
+.upload-success {
+  background-color: #2ECC71 !important;
 }
