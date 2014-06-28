@@ -2,7 +2,11 @@
   "name": "find-me-if-you-can",
   "version": "0.1.0",
   "description": "a game to find the real people like a people puzzle",
+  "url": "ifyoucan.fm",
   "main": "app.js",
+  "views": "./views",
+  "public": "./public",
+  "uploads": "./public/uploads",
   "scripts": {
     "test": "DEBUG=fmiyc node app.js",
     "start": "PORT=8080 NODE_ENV=production node app.js"

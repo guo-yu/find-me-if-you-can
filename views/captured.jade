@@ -1,0 +1,12 @@
+extends layout
+
+block content
+  #captured.captured.clearfix
+    #avatar.avatar.clearfix
+      img(src="#{avatar}", alt="avatar")
+    #vertify.vertify.clearfix
+    h2 Great to meet you, you are ? 
+    form(action="/vertify", method="POST")
+      input(type="hidden", name="avatar", value="#{avatar}")
+      input(type="text", placeholder="your nickname ?", name="nickname", id="nickname")
+      button.btn.btn-default(type="submit") vertify me 

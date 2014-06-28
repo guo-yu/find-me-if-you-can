@@ -4,13 +4,7 @@ a game to find the real people like a people puzzle
 
 ### Installation
 ````
-$ [sudo] npm install find-me-if-you-can
-````
-
-
-### Example
-````javascript
-var find-me-if-you-can = require('find-me-if-you-can');
+$ npm install find-me-if-you-can
 ````
 
 ### API

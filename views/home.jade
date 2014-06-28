@@ -1,0 +1,7 @@
+extends layout
+
+block content
+  #upload.upload.clearfix
+    form(action="/image", method="POST")
+      input#capture.capture(type="file",accept="image/*",capture="camera")
+      button.btn.btn-danger(type="Submit") Capture Me
