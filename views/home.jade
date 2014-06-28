@@ -4,12 +4,14 @@ block content
   #upload.upload.clearfix
     .avatar-wrap.clearfix
       img#avatar(src="about:blank", alt="").avatar
-    form#uploadForm(action="/upload", method="POST")
+    form#uploadForm(action="/upload", method="POST", enctype="multipart/form-data")
       #upload-section.upload-section.clearfix
         span.text 
           i.fa.fa-camera
           |Capture Me
-        input#camera.camera(type="file",accept="image/*",capture="camera", multiple)
+        input#camera.camera(type="file",accept="image/*",capture="camera",name="avatar")
+      input(type="hidden", name="latitude",value="null")
+      input(type="hidden", name="longitude",value="null")
       button.btn.btn-danger.hidden(type="Submit") Capture Me
     #error.error
 
