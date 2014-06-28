@@ -6,7 +6,7 @@ camera.onchange = function(event) {
   if (!files) return false;
   if (files.length === 0) return false;
   var file = files[0];
-  console.log(file);
+  // console.log(file);
   try {
     // Get window.URL object
     var URL = window.URL || window.webkitURL;

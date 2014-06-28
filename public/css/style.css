@@ -21,6 +21,8 @@
   text-align: center;
 }
 .upload .avatar {
+  width: 100%;
+  margin-bottom: 20px;
   display: none;
 }
 .upload button {
