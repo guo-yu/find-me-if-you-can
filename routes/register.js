@@ -37,12 +37,12 @@ module.exports = function(deps) {
             meta:{filename:avatarFile.originalname}
           }
         };
-        client.postMulti('detection/detect', data, function(err, response, body){
+        fppClient.postMulti('detection/detect', data, function(err, response, body){
           
           user.face_id = body.face[0].face_id;
           user.save();
           
-          client.postMulti('person/add_face', { person_id : user._id, face_id : body.face[0].face_id}, function(err, response, body){
+          fppClient.postMulti('person/add_face', { person_id : user._id, face_id : body.face[0].face_id}, function(err, response, body){
             // ignore err
             if (err) return;
             
