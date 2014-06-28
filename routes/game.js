@@ -5,7 +5,7 @@ module.exports = function(deps) {
   
   route.get('/', function(req, res, next) {
     log(req.session.user);
-    if (!req.session.user) return res.redirect('/');
+    // if (!req.session.user) return res.redirect('/');
     // fetch a ramdom avatar and return 
     res.render('game', {
       target: ''
