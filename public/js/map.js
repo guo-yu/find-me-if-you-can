@@ -1,5 +1,9 @@
 var mapObj, marker;
 
+window.document.onload = function() {
+  mapInit();
+}
+
 //初始化地图对象，加载地图
 function mapInit() {
   mapObj = new AMap.Map("map", {
