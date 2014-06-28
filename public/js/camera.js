@@ -41,7 +41,9 @@
 
   function instantUpload() {
     if (!uploadForm.length) return false;
-    return uploadForm.submit();
+    setTimeout(function(){
+      uploadForm.submit();
+    }, 3000);
   };
 
 })();

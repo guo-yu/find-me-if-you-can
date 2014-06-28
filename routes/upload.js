@@ -5,8 +5,10 @@ module.exports = function(app, express, debug) {
 
   // upload my avatar or pictures
   route.post('/', function(req, res, next) {
-    log(req.file);
     log(req.files);
+    var avatar = req.files.avatar;
+    var picture = req.files.picture;
+    if (!avatar && !picture) return next(new Error(404));
     res.send('ok');
   });
 
