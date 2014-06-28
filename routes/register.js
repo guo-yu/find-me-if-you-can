@@ -13,9 +13,12 @@ module.exports = function(deps) {
 
     fppClient.post('person/create', {}, function(err, response, body) {
       if (err) return next(err);
-      if (body.error) return next(body.error);
+      if (body.error) return next(new Error(body.error));
 
       var avatarFile = req.files.avatar;
+      if (!avatarFile)
+        return next(new Error(400));
+      
       userCtrler.create({
         _id : body.person_id,
         nickname : '随机用户名',

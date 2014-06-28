@@ -1,3 +1,4 @@
+var fs = require('fs');
 var FacePlusPlus = require('faceplusplus');
 var fppClient = new FacePlusPlus(require('../config/faceplusplus'));
 
@@ -26,7 +27,7 @@ module.exports = function(deps) {
     fppClient.postMulti('recognition/identify', data, function(err, response, body){
       if (err)
         return next(err);
-      
+      console.log(body);
       if (!body.face || !body.face[0]){
         return res.json({
           status : 'error',
@@ -58,6 +59,9 @@ module.exports = function(deps) {
       photoCtrler.create({
         name : picture.name,
         img_id : body.img_id,
+        creator : req.session.user._id,
+        subject : req.body.subject_id,
+        
       }, function(err, photo){
         if (err)
           next(err);
