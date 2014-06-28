@@ -2,7 +2,8 @@ extends layout
 
 block content
   #upload.upload.clearfix
-    img#avatar(src="about:blank", alt="").avatar
+    .avatar-wrap.clearfix
+      img#avatar(src="about:blank", alt="").avatar
     form(action="/upload", method="POST")
       #upload-section.upload-section.clearfix
         span.text 
