@@ -33,7 +33,6 @@ body {
   max-width: 100%;
   display: block;
   margin: 0px auto 20px;
-  border-radius: 5px;
 }
 .upload {
   position: fixed;
@@ -103,13 +102,13 @@ body {
 }
 .task-title {
   text-align: center;
+  padding-bottom: 10px;
 }
 .single-task .single-task-thumb {
   max-width: 100%;
   display: block;
   margin: 0px auto 20px;
-  border-radius: 5px;
 }
-.compare {
+.compare .avatar {
   opacity: 0;
 }
