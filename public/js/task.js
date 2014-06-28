@@ -5,10 +5,8 @@ function fetchTask(callback) {
       return false;
     }
     console.log(data);
-    var target = data.photos && data.photos.length > 0 ? 
-                 data.photos[0] :
-                 data.user.avatar;
-    $('#single-task').append([
+    var target = data.user.avatar;
+    $('#single-task').prepend([
       '<img class="single-task-thumb" src="',
       '/uploads/' + target,
       '" alt="" />'

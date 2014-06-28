@@ -47,9 +47,10 @@ function initCamera(url, callback, events) {
   };
 
   function showScreenshot() {
+    avatar.css('opacity', 0);
     avatar.animate({
-      'opacity': 1
-    }, 600);
+      opacity: 1
+    }, 5000, function(){});
     return submitImage();
   }
 

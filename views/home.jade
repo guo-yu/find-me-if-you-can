@@ -15,16 +15,16 @@ block content
           button.btn.btn-danger.hidden(type="Submit") Submit
   - else
     #task.task.stage
-      h3.task-title 找到图中的人
+      h3.task-title 找到图中人合照
       #single-task.single-task.clearfix
-      #compare.compare.clearfix
-        img#avatar(src="about:blank", alt="").avatar
+        #compare.compare.clearfix
+          img#avatar(src="about:blank", alt="").avatar
       #upload.upload.clearfix
         form#uploadForm(action="/upload", method="POST", enctype="multipart/form-data", name="uploadForm")
           #upload-section.upload-section.clearfix
             #status-botton.text 
               i.fa.fa-camera
-              span.desc 找到 TA 啦
+              span.desc 与 TA 合照
             input#camera.camera(type="file",accept="image/*",capture="camera",name="picture")
           input(type="hidden", name="latitude")
           input(type="hidden", name="longitude")
