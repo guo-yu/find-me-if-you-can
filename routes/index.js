@@ -28,6 +28,7 @@ function routes(app, express, middlewares, models, ctrlers, debug) {
   // API: register newbie, uploading avatars
   app.use('/register', register(deps));
   app.use('/login', login(deps));
+  app.get('/signout', middlewares.passport.signout);
   // API: upload pictures
   app.use('/upload', upload(deps));
   // API: fetch task

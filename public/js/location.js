@@ -18,10 +18,3 @@ function getLocation(callback) {
     return callback(err);
   }
 }
-
-// getLocation(function(err, position) {
-//   if (!err && position) {
-//     document.getElementsByName('latitude')[0].value = position.latitude;
-//     document.getElementsByName('longitude')[0].value = position.longitude;
-//   }
-// });
