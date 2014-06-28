@@ -42,7 +42,7 @@
   function instantUpload() {
     if (!uploadForm.length) return false;
     setTimeout(function(){
-      uploadForm.submit();
+      // uploadForm.submit();
     }, 3000);
   };
 
