@@ -50,7 +50,7 @@
     var data = new FormData(uploadForm);
     var req = new XMLHttpRequest();
     req.open('POST', '/register', true);
-    req.onLoad = function(event) {
+    req.onload = function(event) {
       console.log(req.status);
       if (req.status === 200) {
         alert('上传成功!');
