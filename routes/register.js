@@ -15,15 +15,15 @@ module.exports = function(deps) {
       if (err) return next(err);
       if (body.error) return next(body.error);
 
+      var avatarFile = req.files.avatar;
       userCtrler.create({
         _id : body.person_id,
-        nickname : '随机用户名' 
+        nickname : '随机用户名',
+        avatar : avatarFile.name
       }, function(err, user) {
         if (err) return next(err);
         
         req.session.user = user;
-
-        var avatarFile = req.files.avatar;
 
         var data = {
           img: {
