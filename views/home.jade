@@ -12,13 +12,26 @@ block content
               i.fa.fa-camera
               span.desc 自拍一张
             input#camera.camera(type="file",accept="image/*",capture="camera",name="avatar")
-          //- input(type="hidden", name="latitude")
-          //- input(type="hidden", name="longitude")
           button.btn.btn-danger.hidden(type="Submit") Submit
   - else
     #task.task.stage
+      h3.task-title 找到图中的人
       #single-task.single-task.clearfix
-        h3 fetching tasks
-
+      #compare.compare.clearfix
+        img#avatar(src="about:blank", alt="").avatar
+      #upload.upload.clearfix
+        form#uploadForm(action="/upload", method="POST", enctype="multipart/form-data", name="uploadForm")
+          #upload-section.upload-section.clearfix
+            #status-botton.text 
+              i.fa.fa-camera
+              span.desc 找到 TA 啦
+            input#camera.camera(type="file",accept="image/*",capture="camera",name="picture")
+          input(type="hidden", name="latitude")
+          input(type="hidden", name="longitude")
+          button.btn.btn-danger.hidden(type="Submit") Submit
 block js
-  script(src="/js/home.js")
+  script(src="/js/camera.js")
+  - if (!user)
+    script(src="/js/home.js")
+  - else
+    script(src="/js/game.js")
