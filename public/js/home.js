@@ -109,7 +109,7 @@
   function nextStage(user) {
     // ui changes
     statusButton.addClass('upload-success');
-    statusText.text('识别成功，开始任务');
+    statusText.text('识别成功，正在获取任务...');
     statusIcon.removeClass()
       .addClass('fa fa-check');
     statusIcon.addClass('bounce animated');

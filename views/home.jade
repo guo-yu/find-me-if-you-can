@@ -1,18 +1,22 @@
 extends layout
 
 block content
-  #avatar-wrap.avatar-wrap.clearfix
-    img#avatar(src="/images/bg.png", alt="").avatar
-  #upload.upload.clearfix
-    form#uploadForm(action="/register", method="POST", enctype="multipart/form-data", name="uploadForm")
-      #upload-section.upload-section.clearfix
-        #status-botton.text 
-          i.fa.fa-camera
-          span.desc 自拍一张
-        input#camera.camera(type="file",accept="image/*",capture="camera",name="avatar")
-      //- input(type="hidden", name="latitude")
-      //- input(type="hidden", name="longitude")
-      button.btn.btn-danger.hidden(type="Submit") Submit
+  #home.home.stage
+    #avatar-wrap.avatar-wrap.clearfix
+      img#avatar(src="/images/bg.png", alt="").avatar
+    #upload.upload.clearfix
+      form#uploadForm(action="/register", method="POST", enctype="multipart/form-data", name="uploadForm")
+        #upload-section.upload-section.clearfix
+          #status-botton.text 
+            i.fa.fa-camera
+            span.desc 自拍一张
+          input#camera.camera(type="file",accept="image/*",capture="camera",name="avatar")
+        //- input(type="hidden", name="latitude")
+        //- input(type="hidden", name="longitude")
+        button.btn.btn-danger.hidden(type="Submit") Submit
+  #task.task.stage
+    #single-task.single-task.clearfix
+      
 
 block js
   script(src="/js/home.js")
