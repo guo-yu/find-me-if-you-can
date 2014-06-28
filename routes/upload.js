@@ -54,20 +54,25 @@ module.exports = function(deps) {
       });
       
       if (!myselfInPhoto)
-        return next(new Error('照片里没有你自己'));
+        return res.json({
+          status : 'error',
+          message : '照片里没有你自己'
+        });
       
       if (!subjectInPhoto)
-        return next(new Error('照片里没有目标对象'));
+        return res.json({
+          status : 'error',
+          message : '照片里没有目标对象'
+        });
       
       photoCtrler.create({
         name : picture.name,
         img_id : body.img_id,
         creator : req.session.user._id,
         subject : req.body.subject_id,
-        
       }, function(err, photo){
         if (err)
-          next(err);
+          return next(err);
         
         res.json({
           status : 'ok',
