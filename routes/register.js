@@ -49,22 +49,33 @@ module.exports = function(deps) {
           user.face_id = body.face[0].face_id;
           user.save();
           
-          
-          fppClient.post('group/add_person', {
-            group_id : '0bf546544b9dee83bb5706550ada4f59',
-            person_id : user._id
-          }, function(err, response, body) {
-            // ignore err
-            if (err) return;
-          });
-          
           fppClient.post('person/add_face', {
             person_id: user._id,
             face_id: body.face[0].face_id
-          }, function(err, response, body) {
+          }, callback1);
+          
+          function callback1(err, response, body) {
             // ignore err
             if (err) return;
-          });
+            
+            fppClient.post('group/add_person', {
+              group_id : '0bf546544b9dee83bb5706550ada4f59',
+              person_id : user._id
+            }, callback2);
+            
+            fppClient.post('train/verify', {
+              person_id : user._id
+            }, function (err, response, body){});
+          }
+          
+          function callback2(err, response, body) {
+            // ignore err
+            if (err) return;
+            
+            fppClient.post('train/identify', {
+              group_id : '0bf546544b9dee83bb5706550ada4f59',
+            }, function(err, response, body){});
+          }
           
           res.json({
             status: 'ok',

@@ -27,7 +27,10 @@ module.exports = function(deps) {
     fppClient.postMulti('recognition/identify', data, function(err, response, body){
       if (err)
         return next(err);
-      console.log(body);
+      
+      if (body.error)
+        return next(new Error(body.error));
+      
       if (!body.face || !body.face[0]){
         return res.json({
           status : 'error',
@@ -51,10 +54,10 @@ module.exports = function(deps) {
       });
       
       if (!myselfInPhoto)
-        next(new Error('照片里没有你自己'));
+        return next(new Error('照片里没有你自己'));
       
       if (!subjectInPhoto)
-        next(new Error('照片里没有目标对象'));
+        return next(new Error('照片里没有目标对象'));
       
       photoCtrler.create({
         name : picture.name,
