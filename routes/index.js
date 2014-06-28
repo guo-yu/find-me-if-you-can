@@ -7,7 +7,6 @@ var register = require('./register');
 var task = require('./task');
 var group = require('./group');
 
-
 module.exports = routes;
 
 function routes(app, express, debug, models, ctrlers) {
@@ -23,14 +22,13 @@ function routes(app, express, debug, models, ctrlers) {
 
   // home route
   app.get('/', home);
-  // sign up
+  // API: register newbie, uploading avatars
   app.use('/register', register(deps));
-  // upload
+  // API: upload pictures
   app.use('/upload', upload(deps));
-  // the game
-  app.use('/game', game(deps));
-  
+  // API: fetch task
   app.use('/task', task(deps));
+  // API: todo
   app.use('/group', group(deps));
   
 }
