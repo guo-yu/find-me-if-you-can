@@ -1,6 +1,6 @@
 'use strict';
 
-function initCamera(callback, events) {
+function initCamera(url, callback, events) {
 
   var camera = document.querySelector("#camera");
   var screenshot = document.querySelector("#avatar");
@@ -58,7 +58,7 @@ function initCamera(callback, events) {
     var req = new XMLHttpRequest();
     var nanobar = new Nanobar();
 
-    req.open('POST', '/register', true);
+    req.open('POST', url || '/register', true);
 
     req.addEventListener('error', function() {
       alert('上传失败了...稍后再试试吧');

@@ -1,7 +1,7 @@
 $(document).ready(function() {
   // when task fetched done
   fetchTask(function(task) {
-    initCamera(function(result) {
+    initCamera('/upload', function(result) {
       // when uploaded
       console.log(result);
     }, {

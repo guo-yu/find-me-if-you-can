@@ -6,7 +6,7 @@ $(document).ready(function(){
   var statusIcon = statusButton.find('i.fa');
   var statusText = statusButton.find('span.desc');
 
-  initCamera(function(err, result){
+  initCamera('/register', function(err, result){
     // ui changes
     statusButton.addClass('upload-success');
     statusText.text('识别成功，正在获取任务...');
