@@ -1,5 +1,6 @@
+var fs = require('fs');
 var FacePlusPlus = require('faceplusplus');
-var fppClient = new FacePlusPlus(require('../config/faceplusplus.json'));
+var fppClient = new FacePlusPlus(require('../config/faceplusplus'));
 
 module.exports = function(deps) {
   
@@ -9,19 +10,24 @@ module.exports = function(deps) {
   
   // upload my avatar or pictures
   route.post('/', function(req, res, next) {
-    log('swsw');
+
+    log(req.body);
+    log(req.files.avatar);
+    log(fppClient);
+
     fppClient.post('person/create', {person_name : '用户名'}, function(err, response, body){
-      if (err){
-        next(err);
-      }
+      if (err) return next(err);
+      if (body.error) return next(body.error);
+
+      log(body);
       
       userCtrler.create({
           _id: body.person_id,
           name : '随机用户名'
         }, function(err, user){
-        if (err){
-          next(err);
-        }
+        if (err) return next(err);
+
+        log(user);
         
         var avatarFile = req.files.avatar;
         

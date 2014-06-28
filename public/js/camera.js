@@ -21,7 +21,7 @@
       // Revoke ObjectURL
       URL.revokeObjectURL(imgURL);
       screenshot.style.display = 'block';
-      return uploadForm.submit();
+      return submitForm();
     } catch (err) {
       try {
         // Fallback if createObjectURL is not supported
@@ -29,7 +29,7 @@
         fileReader.onload = function(event) {
           screenshot.src = event.target.result;
           screenshot.style.display = 'block';
-          return uploadForm.submit();
+          return submitForm();
         };
         fileReader.readAsDataURL(file);
       } catch (e) {
@@ -39,10 +39,17 @@
     }
   };
 
-  uploadForm.addEventListener('submit', function(ev){
+  getLocation(function(err, position) {
+    if (!err && position) {
+      document.getElementsByName('latitude')[0].value = position.latitude;
+      document.getElementsByName('longitude')[0].value = position.longitude;
+    }
+  });
+
+  function submitForm() {
     var data = new FormData(uploadForm);
     var req = new XMLHttpRequest();
-    req.open('POST', 'register', true);
+    req.open('POST', '/register', true);
     req.onLoad = function(event) {
       console.log(req.status);
       if (req.status === 200) {
@@ -51,17 +58,8 @@
         alert('上传失败');
       }
     }
-
     req.send(data);
-    ev.preventDefault();
-  }, false);
-
-  getLocation(function(err, position) {
-    if (!err && position) {
-      document.getElementsByName('latitude').value = position.latitude;
-      document.getElementsByName('longitude').value = position.longitude;
-    }
-  });
+  }
 
   function getLocation(callback) {
     if (!navigator) return;

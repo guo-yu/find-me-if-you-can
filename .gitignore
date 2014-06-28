@@ -5,3 +5,6 @@ psd
 thumb
 *.log
 public/uploads/*.jpg
+public/uploads/*.png
+public/uploads/*.gif
+config/*.json
