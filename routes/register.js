@@ -11,24 +11,15 @@ module.exports = function(deps) {
   // upload my avatar or pictures
   route.post('/', function(req, res, next) {
 
-    log(req.body);
-    log(req.files.avatar);
-    log(fppClient);
-
-    fppClient.post('person/create', {
-      person_name: '用户名'
-    }, function(err, response, body) {
+    fppClient.post('person/create', {}, function(err, response, body) {
       if (err) return next(err);
       if (body.error) return next(body.error);
 
-      log(body);
-
       userCtrler.create({
-        _id: body.person_id
+        _id : body.person_id,
+        nickname : '随机用户名' 
       }, function(err, user) {
         if (err) return next(err);
-
-        log(user);
 
         var avatarFile = req.files.avatar;
 
@@ -46,7 +37,7 @@ module.exports = function(deps) {
           user.face_id = body.face[0].face_id;
           user.save();
 
-          fppClient.postMulti('person/add_face', {
+          fppClient.post('person/add_face', {
             person_id: user._id,
             face_id: body.face[0].face_id
           }, function(err, response, body) {

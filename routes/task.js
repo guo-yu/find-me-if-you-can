@@ -1,5 +1,6 @@
-module.exports = function(app, express, debug, ctrlers) {
-  var route = express.Router();
+module.exports = function(deps) {
+  var log = deps.debug('register');
+  var route = deps.express.Router();
 
   // upload my avatar or pictures
   route.get('/', function(req, res, next) {
