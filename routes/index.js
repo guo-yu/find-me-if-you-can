@@ -22,26 +22,26 @@ function routes(app, express, middlewares, models, ctrlers, debug) {
   deps.ctrlers = ctrlers;
   deps.models = models;
 
-  app.use('*', function(req, res, next){
-    var user_id;
-    if (req.body && req.body.current_user_id){
-      user_id = req.body.current_user_id;
-    }
-    else if(req.query && req.query.current_user_id){
-      user_id = req.query.current_user_id;
-    }
+  // app.use('*', function(req, res, next){
+  //   var user_id;
+  //   if (req.body && req.body.current_user_id){
+  //     user_id = req.body.current_user_id;
+  //   }
+  //   else if(req.query && req.query.current_user_id){
+  //     user_id = req.query.current_user_id;
+  //   }
     
-    if (user_id){
-      ctrlers.user.model.findById(user_id)
-        .exec(function(err, user){
-          req.session.user = user;
-          next();
-        });
-    }
-    else{
-      next();
-    }
-  });
+  //   if (user_id){
+  //     ctrlers.user.model.findById(user_id)
+  //       .exec(function(err, user){
+  //         req.session.user = user;
+  //         next();
+  //       });
+  //   }
+  //   else{
+  //     next();
+  //   }
+  // });
   app.use('*', middlewares.passport.sign());
 
   // home route
