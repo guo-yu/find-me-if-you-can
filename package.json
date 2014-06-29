@@ -7,7 +7,7 @@
   "views": "./views",
   "public": "./public",
   "uploads": "./public/uploads",
-  "database": "mongodb://42.121.128.147/findme",
+  "database": "mongodb://shen2:AKBSKENMBHKTJKTSNH48@118.144.80.200/48fans",
   "session": {
     "store": true
   },
