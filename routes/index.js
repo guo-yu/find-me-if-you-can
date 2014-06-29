@@ -42,6 +42,7 @@ function routes(app, express, middlewares, models, ctrlers, debug) {
   //     next();
   //   }
   // });
+  
   app.use('*', middlewares.passport.sign());
 
   // home route
