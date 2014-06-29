@@ -23,7 +23,8 @@ body {
 .header h1 {
   font-family: 'Pacifico', cursive;
   margin-top: 0px;
-  text-align: center;
+  text-align: left;
+  text-indent: 30px;
   font-size: 30px;
   padding: 20px 0 20px;
   margin-bottom: 0px;
