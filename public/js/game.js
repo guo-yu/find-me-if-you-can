@@ -12,6 +12,7 @@ $(document).ready(function() {
       statusIcon.removeClass()
         .addClass('fa fa-check');
       statusIcon.addClass('bounce animated');
+      window.location.href = '/';
     }, {
       // get location when uploading images
       onUploading: function() {
