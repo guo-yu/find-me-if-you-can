@@ -16,6 +16,7 @@ body {
   background-color: #E74C3C;
   border-radius: 0px;
   position: fixed;
+  z-index: 9999;
   top: 0px;
   left: 0px;
   width: 100%;
@@ -24,7 +25,7 @@ body {
   font-family: 'Pacifico', cursive;
   margin-top: 0px;
   text-align: left;
-  text-indent: 30px;
+  text-indent: 15px;
   font-size: 30px;
   padding: 20px 0 20px;
   margin-bottom: 0px;
