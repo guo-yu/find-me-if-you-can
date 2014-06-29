@@ -60,7 +60,10 @@ module.exports = function(deps) {
                 });
             }
             else{
-              fppClient.post('person/create', {}, createUser);
+              fppClient.post('person/create', {
+                longitude : req.body.longitude,
+                latitude : req.body.latitude
+              }, createUser);
             }
           });
       

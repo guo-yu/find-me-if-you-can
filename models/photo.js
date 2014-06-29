@@ -5,6 +5,8 @@ module.exports = function(Schema) {
     subject: {type: 'String', ref : 'User'},
     face_id : [{type: 'String'}],
     img_id : String,
+    longitude : Number,
+    latitude : Number,
     created: {
       type: Date,
       default: Date.now

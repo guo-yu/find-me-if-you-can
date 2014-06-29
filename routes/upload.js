@@ -70,6 +70,8 @@ module.exports = function(deps) {
         img_id : body.img_id,
         creator : req.session.user._id,
         subject : req.body.subject_id,
+        longitude : req.body.longitude,
+        latitude : req.body.latitude
       }, function(err, photo){
         if (err)
           return next(err);
