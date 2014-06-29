@@ -65,22 +65,27 @@ module.exports = function(deps) {
           message : '照片里没有目标对象'
         });
       
-      photoCtrler.create({
-        name : picture.name,
-        img_id : body.img_id,
-        creator : req.session.user._id,
-        subject : req.body.subject_id,
-        longitude : req.body.longitude,
-        latitude : req.body.latitude
-      }, function(err, photo){
-        if (err)
-          return next(err);
-        
-        res.json({
-          status : 'ok',
-          photo : photo
+      req.session.user.credits = req.session.user.credits + 1;
+      req.session.user.save(callback2);
+      
+      function callback2(){
+        photoCtrler.create({
+          name : picture.name,
+          img_id : body.img_id,
+          creator : req.session.user._id,
+          subject : req.body.subject_id,
+          longitude : req.body.longitude,
+          latitude : req.body.latitude
+        }, function(err, photo){
+          if (err)
+            return next(err);
+          
+          res.json({
+            status : 'ok',
+            photo : photo
+          });
         });
-      });
+      }
     });
   });
 

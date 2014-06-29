@@ -7,6 +7,7 @@ var register = require('./register');
 var task = require('./task');
 var group = require('./group');
 var login = require('./login');
+var ranking = require('./ranking');
 
 module.exports = routes;
 
@@ -55,5 +56,5 @@ function routes(app, express, middlewares, models, ctrlers, debug) {
   app.use('/task', task(deps));
   // API: todo
   app.use('/group', group(deps));
-  
+  app.use('/ranking', ranking(deps));
 }
