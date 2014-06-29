@@ -16,14 +16,14 @@ block content
   - else
     #task.task.stage
       h3.task-title 找到图中人合照
+      //- #compare.compare.clearfix
+        //- img#avatar(src="about:blank", alt="").avatar
       #single-task.single-task.clearfix
-        #compare.compare.clearfix
-          img#avatar(src="about:blank", alt="").avatar
       #upload.upload.clearfix
         form#uploadForm(action="/upload", method="POST", enctype="multipart/form-data", name="uploadForm")
           #upload-section.upload-section.clearfix
             #status-botton.text 
-              i.fa.fa-camera
+              i.fa.fa-child
               span.desc 与 TA 合照
             input#camera.camera(type="file",accept="image/*",capture="camera",name="picture")
           input(type="hidden", name="latitude")

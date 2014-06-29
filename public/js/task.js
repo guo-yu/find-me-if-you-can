@@ -7,7 +7,7 @@ function fetchTask(callback) {
     console.log(data);
     var target = data.user.avatar;
     $('#single-task').prepend([
-      '<img class="single-task-thumb" src="',
+      '<img class="single-task-thumb" id="avatar" src="',
       '/uploads/' + target,
       '" alt="" />'
     ].join(''));

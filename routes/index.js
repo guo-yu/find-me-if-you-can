@@ -57,4 +57,8 @@ function routes(app, express, middlewares, models, ctrlers, debug) {
   // API: todo
   app.use('/group', group(deps));
   app.use('/ranking', ranking(deps));
+  // Page: rank
+  app.get('/rank', function(req, res, next){
+    res.render('rank');
+  });
 }

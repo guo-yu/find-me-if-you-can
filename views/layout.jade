@@ -11,6 +11,10 @@ html
   body
     block header
       #header.header.clearfix.navbar.navbar-default
-        h1 Find me if you can
+        h1 
+          a(href="/") Find me if you can
+        #rank.rank.clearfix
+          a(href="/rank",title="排行榜")
+            i.fa.fa-group
     block content
     block js
